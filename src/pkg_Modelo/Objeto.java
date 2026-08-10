@@ -8,6 +8,6 @@ package pkg_Modelo;
  *
  * @author limao
  */
-public class Arma {
+public class Objeto {
     
 }
