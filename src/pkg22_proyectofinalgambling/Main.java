@@ -4,6 +4,9 @@
  */
 package pkg22_proyectofinalgambling;
 
+import pkg_Controlador.Controlador;
+import pkg_vista.GamblingVista;
+
 /**
  *
  * @author limao
@@ -15,6 +18,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GamblingVista vista = new GamblingVista();
+        Controlador control = new Controlador(vista);
+        vista.setVisible(true);
     }
     
 }

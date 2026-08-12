@@ -4,7 +4,10 @@
  */
 package pkg_vista;
 
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import pkg_Modelo.Objeto;
 
 /**
  *
@@ -25,7 +28,27 @@ public class GamblingVista extends javax.swing.JFrame {
         );
         tablaInventario.setModel(modeloTabla);
     }
+    public void cargarInventarioEnTabla(ArrayList<Objeto> listaInventario) {
+        modeloTabla.setRowCount(0);
 
+        for (Objeto obj : listaInventario) {
+            Object[] fila = {
+                obj.getNombre(),
+                obj.obtenerInfo(),
+                obj.getRareza().getNombre(),
+                obj.getDescripcion()
+            };
+            modeloTabla.addRow(fila);
+        }
+    }
+    public void cambiarImagenCofre(String rutaImagen) {
+        try {
+            ImageIcon nuevaImagen = new ImageIcon(getClass().getResource(rutaImagen));
+            lblChest.setIcon(nuevaImagen);
+        } catch (Exception e) {
+            System.err.println("No se pudo cargar la imagen: " + rutaImagen);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +62,7 @@ public class GamblingVista extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnAbrir = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        lblChestC = new javax.swing.JLabel();
+        lblChest = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaInventario = new javax.swing.JTable();
@@ -53,7 +76,7 @@ public class GamblingVista extends javax.swing.JFrame {
 
         lblTitulo.setText("Abre una caja para obtener una recompensa");
 
-        lblChestC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ChestC.png"))); // NOI18N
+        lblChest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ChestC.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,7 +90,7 @@ public class GamblingVista extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(195, Short.MAX_VALUE)
-                .addComponent(lblChestC)
+                .addComponent(lblChest)
                 .addGap(126, 126, 126))
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,7 +101,7 @@ public class GamblingVista extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(btnAbrir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblChestC)
+                .addComponent(lblChest)
                 .addGap(27, 27, 27))
         );
 
@@ -180,14 +203,14 @@ public class GamblingVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAbrir;
+    public javax.swing.JButton btnAbrir;
     public javax.swing.JButton btnConsultar;
     public javax.swing.JButton btnEliminar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblChestC;
+    public javax.swing.JLabel lblChest;
     private javax.swing.JLabel lblTitulo;
     public javax.swing.JTable tablaInventario;
     // End of variables declaration//GEN-END:variables
