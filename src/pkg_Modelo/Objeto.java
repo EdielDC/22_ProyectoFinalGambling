@@ -23,6 +23,8 @@ public abstract class Objeto {
         this.rareza=rareza;
     }
 
+    public abstract String obtenerInfo();
+
     public Rareza getRareza() {
         return rareza;
     }
