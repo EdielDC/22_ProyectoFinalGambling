@@ -28,7 +28,8 @@ public class Controlador {
         this.vista.tablaInventario.getSelectionModel().addListSelectionListener(e -> seleccionarObjeto());
         this.vista.btnAbrir.addActionListener(e -> abrirCofre());
         this.vista.btnEliminar.addActionListener(e -> eliminarDelInventario());
-
+        this.vista.btnConsultar.addActionListener(e -> consultarObjeto());
+        
         consultarInventario();
     }
 
@@ -117,8 +118,7 @@ public class Controlador {
                     if (obj.getNombre().equals(vista.nombreSeleccionado)) {
                         JOptionPane.showMessageDialog(
                             vista, 
-                            "Objeto: " + obj.getNombre() + " | Rareza: " + obj.getRareza().getNombre() + " | Descripción: " + obj.getDescripcion(), 
-                            "Información del Objeto", 
+                            "Objeto: " + obj.getNombre() + "\nRareza: " + obj.getRareza().getNombre() + "\nDescripción: " + obj.getDescripcion(), "\nInformación del Objeto", 
                             JOptionPane.INFORMATION_MESSAGE
                         );
                         return;
