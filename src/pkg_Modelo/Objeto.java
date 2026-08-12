@@ -12,16 +12,20 @@ public abstract class Objeto {
     private int idObjeto;
     private  String nombre;
     private String descripcion;
+    private Rareza rareza;
 
     public Objeto() {}
 
-    public Objeto(int idObjeto, String nombre, String descripcion) {
+    public Objeto(int idObjeto, String nombre, String descripcion, Rareza rareza) {
         this.idObjeto = idObjeto;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.rareza=rareza;
     }
-    
-    public abstract String rareza();
+
+    public Rareza getRareza() {
+        return rareza;
+    }
 
     public int getIdObjeto() {
         return idObjeto;
