@@ -10,7 +10,7 @@ package pkg_Modelo;
  */
 public class Consumible extends Objeto{
     private int curacion;
-    public Consumible(int idObjeto, String nombre, String descripcion, Rareza rareza, int curacion) {
+    public Consumible(int idObjeto, String nombre, Rareza rareza, String descripcion) {
         super(idObjeto, nombre, descripcion, rareza);
     }
 
