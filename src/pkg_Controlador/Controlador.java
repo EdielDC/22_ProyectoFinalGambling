@@ -109,5 +109,27 @@ public class Controlador {
                 vista,"Seleccione un objeto de la tabla para eliminar.","Aviso",JOptionPane.WARNING_MESSAGE);
         }
     }
+    public void consultarObjeto() {
+        if (vista.nombreSeleccionado != null) {
+            try {
+                ArrayList<Objeto> inventario = daoInventario.obtenerInventario();
+                for (Objeto obj : inventario) {
+                    if (obj.getNombre().equals(vista.nombreSeleccionado)) {
+                        JOptionPane.showMessageDialog(
+                            vista, 
+                            "Objeto: " + obj.getNombre() + " | Rareza: " + obj.getRareza().getNombre() + " | Descripción: " + obj.getDescripcion(), 
+                            "Información del Objeto", 
+                            JOptionPane.INFORMATION_MESSAGE
+                        );
+                        return;
+                    }
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(vista, "Error al consultar el objeto: " + ex.getMessage(), "Error BD", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, seleccione un objeto de la tabla para consultar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }
 }
         
