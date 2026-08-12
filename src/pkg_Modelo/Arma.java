@@ -10,6 +10,7 @@ package pkg_Modelo;
  */
 public class Arma extends Objeto {
     private int daño;
+
     public Arma(int idObjeto, String nombre, Rareza rareza, String descripcion) {
         super(idObjeto, nombre, descripcion, rareza);
     }
@@ -21,10 +22,9 @@ public class Arma extends Objeto {
     public void setDaño(int daño) {
         this.daño = daño;
     }
-    
+
     @Override
     public String obtenerInfo() {
         return "Elemento equipable";
     }
-    
 }

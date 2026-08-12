@@ -8,8 +8,9 @@ package pkg_Modelo;
  *
  * @author brand
  */
-public class Consumible extends Objeto{
+public class Consumible extends Objeto {
     private int curacion;
+
     public Consumible(int idObjeto, String nombre, Rareza rareza, String descripcion) {
         super(idObjeto, nombre, descripcion, rareza);
     }
@@ -26,5 +27,4 @@ public class Consumible extends Objeto{
     public String obtenerInfo() {
         return "Elemento consumible";
     }
-    
 }
