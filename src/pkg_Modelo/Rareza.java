@@ -9,10 +9,10 @@ package pkg_Modelo;
  * @author brand
  */
 public enum Rareza {
-    COMMON("Común", 50),
-    RARE("Rara", 30),
-    EPIC("Épica", 15),
-    LEGENDARY("Legendaria", 5);
+    COMMON("Común", 65),
+    RARE("Rara", 28),
+    EPIC("Épica", 5),
+    LEGENDARY("Legendaria", 2);
     private final String nombre;
     private final int porcent;
     

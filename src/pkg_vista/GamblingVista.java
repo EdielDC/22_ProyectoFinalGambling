@@ -59,7 +59,7 @@ public class GamblingVista extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        Panel1 = new javax.swing.JPanel();
         btnAbrir = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblChest = new javax.swing.JLabel();
@@ -71,41 +71,24 @@ public class GamblingVista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Panel1.setMaximumSize(new java.awt.Dimension(640, 480));
+        Panel1.setMinimumSize(new java.awt.Dimension(640, 480));
+        Panel1.setPreferredSize(new java.awt.Dimension(640, 480));
+        Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnAbrir.setText("Abrir");
         btnAbrir.addActionListener(this::btnAbrirActionPerformed);
+        Panel1.add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 68, -1, -1));
 
+        lblTitulo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setText("Abre una caja para obtener una recompensa");
+        Panel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 23, -1, -1));
 
         lblChest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ChestC.png"))); // NOI18N
+        Panel1.add(lblChest, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 174, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo)
-                    .addComponent(btnAbrir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(195, Short.MAX_VALUE)
-                .addComponent(lblChest)
-                .addGap(126, 126, 126))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lblTitulo)
-                .addGap(29, 29, 29)
-                .addComponent(btnAbrir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblChest)
-                .addGap(27, 27, 27))
-        );
-
-        jTabbedPane1.addTab("Cofres", jPanel1);
+        jTabbedPane1.addTab("Cofres", Panel1);
 
         tablaInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,14 +122,14 @@ public class GamblingVista extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
                     .addComponent(btnConsultar))
@@ -203,10 +186,10 @@ public class GamblingVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panel1;
     public javax.swing.JButton btnAbrir;
     public javax.swing.JButton btnConsultar;
     public javax.swing.JButton btnEliminar;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;

@@ -39,15 +39,15 @@ public class Controlador {
             Objeto premio = lootBox.abrirLootBox(catalogo);
             daoInventario.guardarRecompensa(premio.getIdObjeto());
             
+            //Imagen del cofre con temporizador OWOWOWOWO
             ImageIcon cofreAbierto = new ImageIcon(getClass().getResource("/Recursos/ChestA.png"));
             ImageIcon cofreCerrado = new ImageIcon(getClass().getResource("/Recursos/ChestC.png"));
             vista.lblChest.setIcon(cofreAbierto);
-            Timer temporizador = new Timer(2000, e -> {
-            vista.lblChest.setIcon(cofreCerrado);
-            });
+            Timer temporizador = new Timer(2000, e -> {vista.lblChest.setIcon(cofreCerrado);});
             temporizador.setRepeats(false);
             temporizador.start();
             
+            //mensaje de exito
             JOptionPane.showMessageDialog(
                 vista,"¡Felicidades! Has obtenido: " + premio.getNombre() + " (" + premio.getRareza().getNombre() + ")", "Recompensa Obtenida", JOptionPane.INFORMATION_MESSAGE);
             consultarInventario();
