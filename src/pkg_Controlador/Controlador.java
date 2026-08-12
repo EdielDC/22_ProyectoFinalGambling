@@ -38,8 +38,8 @@ public class Controlador {
             Objeto premio = lootBox.abrirLootBox(catalogo);
             daoInventario.guardarRecompensa(premio.getIdObjeto());
             
-            ImageIcon cofreAbierto = new ImageIcon(getClass().getResource("/imagenes/ChestA.png"));
-            ImageIcon cofreCerrado = new ImageIcon(getClass().getResource("/imagenes/ChestC.png"));
+            ImageIcon cofreAbierto = new ImageIcon(getClass().getResource("/Recursos/ChestA.png"));
+            ImageIcon cofreCerrado = new ImageIcon(getClass().getResource("/Recursos/ChestC.png"));
             vista.lblChest.setIcon(cofreAbierto);
             Timer temporizador = new Timer(2000, e -> {
             vista.lblChest.setIcon(cofreCerrado);
@@ -48,8 +48,7 @@ public class Controlador {
             temporizador.start();
             
             JOptionPane.showMessageDialog(
-                vista, 
-                "¡Felicidades! Has obtenido: " + premio.getNombre() + " (" + premio.getRareza().getNombre() + ")", "Recompensa Obtenida", JOptionPane.INFORMATION_MESSAGE);
+                vista,"¡Felicidades! Has obtenido: " + premio.getNombre() + " (" + premio.getRareza().getNombre() + ")", "Recompensa Obtenida", JOptionPane.INFORMATION_MESSAGE);
             consultarInventario();
         } catch (LootBoxVaciaException ex) {
             JOptionPane.showMessageDialog(vista, "Error en la LootBox: " + ex.getMessage(), "Aviso", JOptionPane.WARNING_MESSAGE);
