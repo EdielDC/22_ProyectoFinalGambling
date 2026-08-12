@@ -11,7 +11,7 @@ package pkg_Modelo;
 public class Arma extends Objeto {
     private int daño;
 
-    public Arma(int idObjeto, String nombre, Rareza rareza, String descripcion) {
+    public Arma(int idObjeto, String nombre, String descripcion, Rareza rareza) {
         super(idObjeto, nombre, descripcion, rareza);
     }
 

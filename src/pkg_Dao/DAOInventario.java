@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author brand
  */
 public class DAOInventario {
-    private final String url = "jdbc:mysql://localhost:3306/caja_sorpresa_db";
+    private final String url = "jdbc:mysql://localhost:3306/gambling";
     private final String user = "root";
     private final String pass = "1234";
 
@@ -27,9 +27,9 @@ public class DAOInventario {
     }
 
     public ArrayList<Objeto> obtenerInventario() throws SQLException {
-        ArrayList<Objeto> listaInventario = new ArrayList<>();
+        ArrayList<Objeto> inventario = new ArrayList<>();
         
-        String sql = "SELECT i.`idInventario`, c.`nombre`, c.`descripcion`, c.`rareza`, c.`tipoObjeto` " +
+        String sql = "SELECT i.`idInventario`, c.`idObjeto`, c.`nombre`, c.`descripcion`, c.`rareza`, c.`tipoObjeto` " +
                      "FROM `inventarioUsuario` i " +
                      "INNER JOIN `objetoCatalogo` c ON i.`idObjeto` = c.`idObjeto`";
 
@@ -44,13 +44,19 @@ public class DAOInventario {
                 Rareza rareza = Rareza.valueOf(rs.getString("rareza").toUpperCase());
                 String tipoObjeto = rs.getString("tipoObjeto");
 
-                switch (tipoObjeto) {
-                    case "WEAPON" -> listaInventario.add(new Arma(idInventario, nombre, rareza, descripcion));
-                    case "POTION" -> listaInventario.add(new Consumible(idInventario, nombre, rareza, descripcion));
+                Objeto obj = null;
+                if ("WEAPON".equalsIgnoreCase(tipoObjeto)) {
+                    obj = new Arma(idInventario,nombre,descripcion, rareza);
+                } else if ("POTION".equalsIgnoreCase(tipoObjeto)) {
+                    obj = new Consumible(idInventario,nombre,descripcion, rareza);
+                }
+
+                if (obj != null) {
+                    inventario.add(obj);
                 }
             }
         }
-        return listaInventario;
+        return inventario;
     }
 
     public void eliminarDelInventario(int idInventario) throws SQLException {
